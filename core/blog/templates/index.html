@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style type="text/css">
+      img{
+        max-width: 100%;
+        object-fit: cover;
+      }
+
+      .featured_image{
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      }
+      }
+    </style>
+  </head>
+  <body>
+  <h1>BLOG</h1>
+   <section class = "featured" id = "featured">
+      <div class = "container">
+          <div>
+              {% for article in articles %}
+              <div class = "featured-img">
+              <img src = "{{ article.image.url }}">
+              </div>
+              <div>
+                  {{ article.headline }}
+              </div>
+
+              {% empty %}
+              <h3>No Articles</h3>
+              {% endfor %}
+
+          </div>
+      </div>
+   </section>
+  </body>
+</html>
